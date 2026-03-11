@@ -9,3 +9,5 @@ dictionary.txt
 .httr-oauth
 .DS_Store
 .quarto
+README.html
+README.Rmd
