@@ -1,4 +1,4 @@
-# title: 07b_delta_c_index_kang.R
+# title: 07b_delta_c_index_delta_u.R
 # author: Rayane Haddadj
 # year: 2025
 
