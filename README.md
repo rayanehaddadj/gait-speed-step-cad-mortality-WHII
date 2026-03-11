@@ -1,34 +1,91 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # Comparison of clinical gait speed and free-living step cadence and their ability to predict mortality: A Whitehall II study
 
-<!-- badges: start -->
+The repository includes relevant documentation and code to replicate the
+analysis conducted in the paper:
 
-<!-- badges: end -->
+**Add paper and doi**
 
-The goal of gait-speed-step-cad-mortality-WHII is to …
+The aim of this paper was to compare the predictive ability and
+association with all-cause mortality of gait speed measured in clinical
+setting and step cadence derived from a free-living accelerometer
+recording. To respond this question, the study uses data from the
+2012-2013 wave of the Whitehall II study.
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+The code is structured as follows:
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
+## Part 0 - Custom functions
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date.
+- 00a_functions_cleaning.R contains the functions for data cleaning and
+  descriptive statistics report
 
-You can also embed plots, for example:
+- 00b_functions_analysis.R contains the functions used in the analysis
 
-![](README_files/figure-gfm/pressure-1.png)<!-- -->
+## Part 1 - Extract step cadence
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub.
+- 01_extract_step_cadence.R contains the code to extract step cadence
+  from the output of the OxWearable/Stepcount software
+  (<https://github.com/OxWearables/stepcount>, version 3.13.0).
+
+## Part 2 - Data cleaning
+
+- 02_data_cleaning.R contains the code to prepare the data for analysis
+  and perform various quality checks.
+
+## Part 3 - Descriptive statistics
+
+- 03_descriptive.R contains the code to perform and visualize various
+  descriptive statistics on the study sample.
+
+## Part 4 - Main analysis
+
+- 04a_main_analysis_models.R contains the code to estimate and extract
+  hazard ratio and C-index of the models containing a single gait
+  parameter.
+
+- 04b_delta_c_index_delta_u.R contains the code to assess difference in
+  C-index between models using the delta-U method.
+
+- 04c_delta_c_index_bootstrap.R contains the code to assess difference
+  in C-index between the models using a bootstrap procedure (not
+  reported in the paper).
+
+- 04d_main_analysis_table.R contains the code to produce tables to
+  visualize hazard ratio and C-index.
+
+## Part 5 - Stratified analysis
+
+- 05a_stratified_analysis_models.R contains the code to estimate and
+  extract hazard ratio and C-index in stratified models.
+
+- 05b_stratified_analysis_pvalue.R contains the code to assess
+  difference in C-index between subgroups using the delta-U method.
+
+- 05d_stratified_analysis_plot.R contains the code to produce forest
+  plots to visualize hazard ratio and C-index of subgroups.
+
+## Part 6 - Sensitivity analysis
+
+- 06a_sensitivity_analysis_models.R contains the code to estimate and
+  extract hazard ratio and C-index using additional accelerometer-based
+  step cadence metrics.
+
+- 06d_sensitivity_analysis_plot.R contains the code to produce forest
+  plots to visualize hazard ratio and C-index of additional
+  accelerometer-based step cadence metrics.
+
+## Part 7 - Post-hoc analysis
+
+- 07a_post_hoc_analysis_models.R contains the code to estimate and
+  extract hazard ratio and C-index of the models combing gait
+  parameters.
+
+- 07b_delta_c_index_delta_u.R contains the code to assess difference in
+  C-index between models using the delta-U method.
+
+- 07c_delta_c_index_bootstrap.R contains the code to assess difference
+  in C-index between the models using a bootstrap procedure (not
+  reported in the paper).
+
+- 07d_post_hoc_analysis_table.R contains the code to produce tables to
+  visualize hazard ratio and C-index.
