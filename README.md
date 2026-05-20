@@ -1,5 +1,5 @@
 
-# Comparison of clinical gait speed and free-living step cadence and their ability to predict mortality: A Whitehall II study
+# Comparison of clinical walking speed and free-living walking cadence and their ability to predict mortality: A Whitehall II study
 
 The repository includes relevant documentation and code to replicate the
 analysis conducted in the paper:
@@ -7,8 +7,8 @@ analysis conducted in the paper:
 **Add paper and doi**
 
 The aim of this paper was to compare the predictive ability and
-association with all-cause mortality of gait speed measured in clinical
-setting and step cadence derived from a free-living accelerometer
+association with all-cause mortality of walking speed measured in clinical
+setting and walking cadence derived from a free-living accelerometer
 recording. To respond this question, the study uses data from the
 2012-2013 wave of the Whitehall II study.
 
@@ -21,9 +21,9 @@ The code is structured as follows:
 
 - 00b_functions_analysis.R contains the functions used in the analysis
 
-## Part 1 - Extract step cadence
+## Part 1 - Extract walking cadence
 
-- 01_extract_step_cadence.R contains the code to extract step cadence
+- 01_extract_walking_cadence.R contains the code to extract walking cadence
   from the output of the OxWearable/Stepcount software
   (<https://github.com/OxWearables/stepcount>, version 3.13.0).
 
@@ -40,7 +40,7 @@ The code is structured as follows:
 ## Part 4 - Main analysis
 
 - 04a_main_analysis_models.R contains the code to estimate and extract
-  hazard ratio and C-index of the models containing a single gait
+  hazard ratio and C-index of the models containing a single walking
   parameter.
 
 - 04b_delta_c_index_delta_u.R contains the code to assess difference in
@@ -68,16 +68,16 @@ The code is structured as follows:
 
 - 06a_sensitivity_analysis_models.R contains the code to estimate and
   extract hazard ratio and C-index using additional accelerometer-based
-  step cadence metrics.
+  walking cadence metrics.
 
 - 06d_sensitivity_analysis_plot.R contains the code to produce forest
   plots to visualize hazard ratio and C-index of additional
-  accelerometer-based step cadence metrics.
+  accelerometer-based walking cadence metrics.
 
 ## Part 7 - Post-hoc analysis
 
 - 07a_post_hoc_analysis_models.R contains the code to estimate and
-  extract hazard ratio and C-index of the models combing gait
+  extract hazard ratio and C-index of the models combing walking
   parameters.
 
 - 07b_delta_c_index_delta_u.R contains the code to assess difference in

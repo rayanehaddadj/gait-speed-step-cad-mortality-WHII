@@ -282,9 +282,9 @@ prep.forest <- function(metrics, ci, pred_name, stratum1, stratum2 = "",
   )
   
   pred_levels <- c(
-    "Clinical gait speed",
-    "Median step cadence",
-    "Step cadence 95th percentile"
+    "Clinical walking speed",
+    "Median walking cadence",
+    "95th percentile walking cadence"
   )
   est_df$predictor <- factor(est_df$predictor, levels = pred_levels)
   
@@ -311,8 +311,10 @@ forest.plot <- function(data, strata_y, strata_color, output_dir, file_name){
     data |>
     ggplot(aes(x = hr, y = stratum_factor)) +
     geom_errorbar(
-      aes(xmin = hr_ll, xmax = hr_ul, 
-          color = !!ifelse(strata_color != "", sym(strata_color), NA)), 
+      aes(
+        xmin = hr_ll, xmax = hr_ul, 
+        color = !!ifelse(strata_color != "", sym(strata_color), NA)
+      ), 
       width = 0,
       position = dodge
     ) +
@@ -323,8 +325,12 @@ forest.plot <- function(data, strata_y, strata_color, output_dir, file_name){
       position = dodge
     ) +
     geom_text(
-      aes(x = I(1.01), label = hr_lab, hjust = 0, 
-          group = !!ifelse(strata_color != "", sym(strata_color), NA)), 
+      aes(
+        x = I(1.01), 
+        label = hr_lab, 
+        hjust = 0, 
+        group = !!ifelse(strata_color != "", sym(strata_color), NA)
+      ), 
       size = 10/3,
       position = dodge
     ) +
@@ -335,7 +341,7 @@ forest.plot <- function(data, strata_y, strata_color, output_dir, file_name){
       limits = c(0.475, 1.055), 
       breaks = seq(0.5, 1, 0.1), 
       labels = seq(0.5, 1, 0.1),
-      trans = "log10",
+      transform = "log10",
       expand = c(0, 0)
     ) +
     scale_y_discrete(name = "") +
@@ -367,8 +373,11 @@ forest.plot <- function(data, strata_y, strata_color, output_dir, file_name){
     data |>
     ggplot(aes(x = c_index, y = stratum_factor)) +
     geom_errorbar(
-      aes(xmin = c_index_ll, xmax = c_index_ul, 
-          color = !!ifelse(strata_color != "", sym(strata_color), NA)), 
+      aes(
+        xmin = c_index_ll,
+        xmax = c_index_ul,
+        color = !!ifelse(strata_color != "", sym(strata_color), NA)
+      ), 
       width = 0,
       position = dodge
     ) +
@@ -379,8 +388,12 @@ forest.plot <- function(data, strata_y, strata_color, output_dir, file_name){
       position = dodge
     ) +
     geom_text(
-      aes(x = I(1.01), label = c_index_lab, hjust = 0, 
-          group = !!ifelse(strata_color != "", sym(strata_color), NA)), 
+      aes(
+        x = I(1.01),
+        label = c_index_lab,
+        hjust = 0,
+        group = !!ifelse(strata_color != "", sym(strata_color), NA)
+      ), 
       size = 10/3,
       position = dodge
     ) +
@@ -440,12 +453,6 @@ forest.plot <- function(data, strata_y, strata_color, output_dir, file_name){
   path <- file.path("outputs", "results", output_dir, file_name)
   name_pdf <- paste0(path,"_forest_plot.pdf")
   name_png <- paste0(path, "_forest_plot.png")
-  ggsave(name_pdf,  width = 10.04, height = 8.232, units = "in", create.dir = TRUE)
-  ggsave(
-    name_png, 
-    width = 6000,
-    height = 4800,
-    units = "px",
-    dpi = 600,
-    create.dir = TRUE)
+  ggsave(name_pdf,  width = 25.4, height = 25.4, units = "cm", create.dir = TRUE)
+  ggsave(name_png, width = 6000, height = 6000, units = "px", dpi = 600)
 }

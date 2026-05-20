@@ -16,8 +16,7 @@ whii <- readRDS("data/cleaned_data/data_for_analysis.RDS")
 # MODEL ADJUSTMENTS ----
 model2_sex <- c("age_t0", "education", "marital_status", "ethnicity")
 model3_sex <- c(model2_sex, "smoking", "alcohol_cons", "fruit_veg")
-model4_sex <- c(model3_sex, "bmi", "hypertension", "hyperlipidemia", "nadl", "niadl",
-                "n_chronic_dis")
+model4_sex <- c(model3_sex, "bmi", "hypertension", "hyperlipidemia", "nadl", "niadl", "n_chronic_dis")
 
 # FEMALE STRATUM ----
 whii_female <- whii[analysis == 1 & sex_factor == "Female"]

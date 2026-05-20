@@ -1,4 +1,4 @@
-# title: 03_descriptive.R
+# title: 03_descriptives.R
 # author: Rayane Haddadj
 # year: 2025
 
@@ -6,11 +6,11 @@
 #start logs
 while(sink.number() > 0) sink()
 while (!is.null(dev.list())) dev.off()
-sink("outputs/descriptive/descriptive_log.txt")
+sink("outputs/descriptivesdescriptive_log.txt")
 cat("===== Descriptive log started at:",
     format(Sys.time(), "%Y-%m-%d %H:%M:%S"), 
     "=====\n")
-pdf("outputs/descriptive/figure_log.pdf")
+pdf("outputs/descriptivesfigure_log.pdf")
 
 library(data.table)
 library(table1)
@@ -138,7 +138,7 @@ rownames(cor_mtx) <- c(
   "Median step cadence, first midnight-to-midnight",
   "Step cadence 95th percentile, first midnight-to-midnight"
 )
-png("outputs/descriptive/correlation_plot.png", width = 2500, height = 2500, res = 300)
+png("outputs/descriptivescorrelation_plot.png", width = 2500, height = 2500, res = 300)
 corrplot(
   cor_mtx, 
   method = "color",
@@ -183,7 +183,7 @@ table1 <-
       cad_50th,
       cad_95th,
       mean_stepcount,
-      n_valid_d_step,
+      n_valid_d_step
     ),
     value = c(
       sex_factor ~ "Female", 
@@ -228,11 +228,11 @@ table1 <-
   modify_column_alignment(columns = everything(), align = "left")
 
 # save table1
-if (file.exists("outputs/descriptive/table1_raw.docx")) {
-    file.remove("outputs/descriptive/table1_raw.docx")
+if (file.exists("outputs/descriptivestable1_raw.docx")) {
+    file.remove("outputs/descriptivestable1_raw.docx")
 } 
 table1 <- as_gt(table1)
-gtsave(table1, filename = "outputs/descriptive/table1_raw.docx")
+gtsave(table1, filename = "outputs/descriptivestable1_raw.docx")
 
 # TABLE ADDITIONAL METRICS ----
 # set language
@@ -285,8 +285,8 @@ table_supp <-
   )
 
 # save table
-if (file.exists("outputs/descriptive/table_s1_raw.docx")) {
-  file.remove("outputs/descriptive/table_s1_raw.docx")
+if (file.exists("outputs/descriptivestable_s1_raw.docx")) {
+  file.remove("outputs/descriptivestable_s1_raw.docx")
 } 
 table1 <- as_gt(table_supp)
-gtsave(table1, filename = "outputs/descriptive/table_s1_raw.docx")
+gtsave(table1, filename = "outputs/descriptivestable_s1_raw.docx")

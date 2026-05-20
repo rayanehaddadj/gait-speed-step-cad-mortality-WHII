@@ -12,9 +12,9 @@ rds <- "model_metrics.RDS"
 
 # predictor list
 pred <- c(
-  "Clinical gait speed", 
-  "Median step cadence", 
-  "Step cadence 95th percentile"
+  "Clinical walking speed", 
+  "Median walking cadence", 
+  "95th percentile walking cadence"
 )
 
 #-------------------------------------------------------------------------------

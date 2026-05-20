@@ -1,4 +1,4 @@
-# title: 01_extract_step_cadence.R
+# title: 01_extract_walking_cadence.R
 # author: Rayane Haddadj
 # year: 2025
 
@@ -66,14 +66,14 @@ for (i in list.dirs("data/oxford_output/", recursive=FALSE)){
   steps[, valid_day_time := fifelse(weartime >= 16, 1, 0)]
   steps[, valid_day_steps := fifelse(weartime >= 16 & daily_step > 0, 1, 0)]
   
-  # step cadence no restriction
+  # walking cadence no restriction
   steps[, cadence := Steps * 6]
   step_cad <- quantile(
     steps[valid_day_time == 1 & Steps > 0, cadence], 
     c(0.50, 0.67, 0.75, 0.95, 0.99)
   )
   
-  # step cadence 30-s & 60-s bouts only
+  # walking cadence 30-s & 60-s bouts only
   steps[, criteria := Steps > 0]
   steps[, sequence := rleid(criteria)]
   bout <- rle(steps[, criteria])

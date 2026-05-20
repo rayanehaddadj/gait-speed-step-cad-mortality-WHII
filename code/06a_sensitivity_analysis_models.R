@@ -12,8 +12,7 @@ whii <- readRDS("data/cleaned_data/data_for_analysis.RDS")
 # models adjustments
 model2 <- c("sex_factor", "age_t0", "education", "marital_status", "ethnicity")
 model3 <- c(model2, "smoking", "alcohol_cons", "fruit_veg")
-model4 <- c(model3, "bmi", "hypertension", "hyperlipidemia", "nadl", "niadl", 
-            "n_chronic_dis")
+model4 <- c(model3, "bmi", "hypertension", "hyperlipidemia", "nadl", "niadl", "n_chronic_dis")
 
 #-------------------------------------------------------------------------------
 # PARTICIPANTS WITH ≥7 VALID DAYS OF ACCELEROMETRY -----------------------------

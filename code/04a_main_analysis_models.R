@@ -13,8 +13,7 @@ whii_valid <- whii[analysis == 1]
 # model adjustments
 model2 <- c("sex_factor", "age_t0", "education", "marital_status", "ethnicity")
 model3 <- c(model2, "smoking", "alcohol_cons", "fruit_veg")
-model4 <- c(model3, "bmi", "hypertension", "hyperlipidemia", "nadl", "niadl", 
-            "n_chronic_dis")
+model4 <- c(model3, "bmi", "hypertension", "hyperlipidemia", "nadl", "niadl", "n_chronic_dis")
 
 # MODELS: COVARIATES ONLY ---- 
 # model 2
@@ -101,7 +100,8 @@ custom.cox(
   data = whii_valid, 
   outcome = "death",
   survtime = "followup_d", 
-  main_pred = "cad_50th", cov = NULL, 
+  main_pred = "cad_50th",
+  cov = NULL, 
   output_dir = "main_analysis", 
   model_name = "step_cadence_50_model1"
 )
@@ -145,7 +145,8 @@ custom.cox(
   data = whii_valid, 
   outcome = "death",
   survtime = "followup_d", 
-  main_pred = "cad_95th", cov = NULL, 
+  main_pred = "cad_95th",
+  cov = NULL, 
   output_dir = "main_analysis", 
   model_name = "step_cadence_95_model1"
 )

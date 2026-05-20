@@ -13,8 +13,7 @@ whii_valid <- whii[analysis == 1]
 # model adjustments
 model2 <- c("sex_factor", "age_t0", "education", "marital_status", "ethnicity")
 model3 <- c(model2, "smoking", "alcohol_cons", "fruit_veg")
-model4 <- c(model3, "bmi", "hypertension", "hyperlipidemia", "nadl", "niadl", 
-            "n_chronic_dis")
+model4 <- c(model3, "bmi", "hypertension", "hyperlipidemia", "nadl", "niadl", "n_chronic_dis")
 
 #-------------------------------------------------------------------------------
 # COMBINATION OF ACCELEROMETER METRICS -----------------------------------------
